@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<style>
+		body{
+			
+			background-image:url("{% static 'img/2.jpg' %}");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 1400px 700px;
+		}
+		#div1_m{
+			background-color: rgba(172, 16, 16, 0.829);
+			width: 1300px;
+			height: 100px;
+		}
+		#div_1,#div_2,#div_3,#div_4{
+			float: left;
+			width: 25%;
+			text-align:center;
+			padding-top:40px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			
+		}
+        a{
+            text-decoration:none;
+            font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+            color: black;
+        }
+        a:hover{
+			color: red;
+			text-decoration:none;
+		}
+		#div_1:hover,#div_2:hover,#div_3:hover,#div_4:hover{
+			background-color: white;
+			height: 60px;
+		}
+		#link{
+			color: white;
+			text-align: center;
+			font-size: 18px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+        #div_img, #div_descrip{
+            float: left;
+        }
+       
+        #li_descrip_d,#li_presio_d,#li_titulo_d{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        #imagen_1_d{
+            height: 350px;
+            width: 250px;
+        }
+        #lista1{
+            height: 500px;
+        }
+
+
+
+
+
+        
+       
+	
+      
+	</style>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+<body>
+<h1>"Conocete" Libreria</h1>
+<h2>Encuentra El Libro Que Has Estado Buscando  </h2>
+
+<div id="div1_m">
+	<div id="div_1"><a href="{% url 'home' %}">Home</a></div>
+	<div id="div_2"><a href="{% url 'mangas' %}">Mangas</a></div>
+	<div id="div_3"><a href="{% url 'revistas' %}">Revistas</a></div>
+    <div id="div_4"><a href="{% url 'Autores' %}">Autores</a></div>
+</div>
+
+
+
+<br><br><br>
+
+
+
+<ul id="lista1">
+	<br><br><br><br>
+	{%for DescripLib in Listado1 %}
+		
+     
+		<br>
+		<div id="div_img">
+          
+		<img src = {{DescripLib.img}} id="imagen_1_d">
+		
+        </div>
+
+        <div id="div_descrp">
+
+            <li id="li_titulo_d">{{ DescripLib.text }}</li>
+
+            <li id="li_descrip_d">{{ DescripLib.descrpicion }}</li>
+		
+            <li id="li_presio_d">{{ DescripLib.presio }}</li>
+        </div>
+		
+		
+    {% endfor %}
+	
+</ul>
+
+
+</body>
+</html>
